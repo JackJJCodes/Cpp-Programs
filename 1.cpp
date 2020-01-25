@@ -1,16 +1,22 @@
-#include<iostream>
+#include <iostream>
+#include<string>
 using namespace std;
-namespace n1
-{
-    int val=5;
-    namespace n2
-    {
-        int val1=val;
-    } // namespace n2
-}
-int main()
-{
-    cout<<n1::n2::val1;
-    cout<<endl;
-    cout<<n1::val;
-}
+ class demo
+ {
+     int x;
+     public:
+     demo(int a)
+     {
+         x=a;
+     }
+     friend void display(demo);  //Friend function called
+ };
+ void display(demo d1)       //Friend Function definition
+ {
+     cout<<d1.x<<endl;
+ }
+ int main()
+ {
+     demo d2(5);
+     display(d2);
+ }
